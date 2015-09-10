@@ -1,0 +1,21 @@
+# IDE and dev tools specific files
+.idea
+*.iml
+.vagrant
+node_modules
+devops/roles/galaxy/*
+
+# Symfony specific
+/app/bootstrap.php.cache
+/app/cache/*
+/app/config/parameters.yml
+/app/logs/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
+/build/
+/vendor/
+/bin/
+/composer.phar
+/web/bundles/
+
+!.gitkeep

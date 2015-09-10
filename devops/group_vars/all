@@ -1,0 +1,40 @@
+---
+app_name: "example"
+
+app_user: "{{app_name}}"
+app_group: "{{app_user}}"
+
+app_path: "/srv"
+
+apt_keys:
+ - "http://www.dotdeb.org/dotdeb.gpg"
+
+apt_repositories:
+ - "deb http://packages.dotdeb.org wheezy-php56 all"
+ - "deb-src http://packages.dotdeb.org wheezy-php56 all"
+
+php_required_extensions:
+ - php5-apcu
+ - php5-pgsql
+
+php_extensions:
+ - php5-apcu
+ - php5-pgsql
+
+php_fpm_pools:
+ - name: "{{app_name}}"
+   user: "{{app_user}}"
+   group: "{{app_group}}"
+
+postgresql_databases:
+ - name: "{{app_name}}_db"
+ - name: "{{app_name}}_db_test"
+
+postgresql_users:
+ - name: "{{app_user}}"
+   pass: "{{app_database_password}}"
+   encrypted: no
+
+nginx_server_name: "{{app_name}}"
+nginx_root_dir: "{{app_path}}/web"
+nginx_template_path: "templates/nginx/server.conf.j2"
