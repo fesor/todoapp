@@ -1,0 +1,19 @@
+App\Domain\Task:
+    type: entity
+    table: tasks
+    id:
+        id:
+            type: integer
+            generator: {strategy: AUTO}
+
+    fields:
+        description:
+            type: string
+        status:
+            type: string
+        createdAt:
+            type: datetime
+
+    manyToOne:
+        todoList:
+            targetEntity: TodoList

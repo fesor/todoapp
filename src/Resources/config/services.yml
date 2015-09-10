@@ -1,6 +1,4 @@
-
-services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
-
+imports:
+    - { resource: services/application.yml }
+    - { resource: services/api.yml }
+    - { resource: services/infrastructure.yml }

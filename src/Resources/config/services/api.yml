@@ -1,0 +1,5 @@
+services:
+    app.api.request_deserializer:
+        class: App\Api\EventListener\RequestDeserializerListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onRequest }
