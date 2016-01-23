@@ -1,3 +1,0 @@
-[submodule "devops/roles/isoft"]
-	path = devops/roles/isoft
-	url = https://github.com/intellectsoft-uk/ansible-roles.git
