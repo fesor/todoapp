@@ -1,0 +1,4 @@
+devops
+app/cache
+app/logs
+.env

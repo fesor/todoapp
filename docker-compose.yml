@@ -1,0 +1,26 @@
+php:
+    build: '.'
+    links:
+        - database
+    env_file: .env
+    volumes:
+        - '.:/srv'
+
+front:
+    build: 'devops/dockerfiles/nginx'
+    ports:
+        - 0.0.0.0:8080:80
+    links:
+        - php
+
+database:
+    image: postgres:9.4
+    env_file: .env
+    volumes_from:
+        - dbdata
+
+dbdata:
+    image: postgres:9.4
+    volumes:
+        - /var/lib/postgresql
+    command: "true"
