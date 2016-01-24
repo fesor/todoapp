@@ -2,6 +2,7 @@
 
 namespace App\Domain;
 
+use Doctrine\Common\Collections\Criteria;
 use EndyJasmi\Cuid;
 
 class Task
@@ -57,6 +58,16 @@ class Task
             'created_at' => clone $this->createdAt,
             'status' => $this->status
         ];
+    }
+
+    public static function byIdCriteria(string $id) : Criteria
+    {
+        return (new Criteria())->where(Criteria::expr()->eq('id', $id));
+    }
+
+    public static function pendingCriteria() : Criteria
+    {
+        return (new Criteria())->where(Criteria::expr()->eq('pending', true));
     }
 
 }

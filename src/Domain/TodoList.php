@@ -2,8 +2,6 @@
 
 namespace App\Domain;
 
-use App\Domain\Criteria\PendingTaskCriteria;
-use App\Domain\Criteria\TaskByIDCriteria;
 use App\Domain\Exception\NotFoundException;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -48,7 +46,7 @@ class TodoList
 
     public function countPendingTasks() : int
     {
-        return $this->tasks->matching(new PendingTaskCriteria())->count();
+        return $this->tasks->matching(Task::pendingCriteria())->count();
     }
 
     public function toArrayWithTasks() : array
@@ -65,7 +63,7 @@ class TodoList
 
     private function getTaskByID($id) : Task
     {
-        $task = $this->tasks->matching(new TaskByIDCriteria($id))->first();
+        $task = $this->tasks->matching(Task::byIdCriteria($id))->first();
         if (false === $task) {
             throw new NotFoundException(sprintf('Task with id "%d" not found in todo list', $id));
         }
