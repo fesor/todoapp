@@ -1,0 +1,4 @@
+suites:
+    todoapp_suite:
+        namespace: App
+        psr4_prefix: App

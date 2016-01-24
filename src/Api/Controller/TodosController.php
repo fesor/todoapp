@@ -33,9 +33,11 @@ class TodosController extends Controller
      */
     public function createTodoListAction(Request $request)
     {
-        $response = $this->todoListManager()->createTodoList(new CreateTodoListRequest(
-            $request->get('name')
-        ));
+        $response = $this->todoListManager()->createTodoList(
+            new CreateTodoListRequest(
+                $request->get('name')
+            )
+        );
 
         $this->flush();
 

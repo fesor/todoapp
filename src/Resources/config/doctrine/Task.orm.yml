@@ -3,8 +3,8 @@ App\Domain\Task:
     table: tasks
     id:
         id:
-            type: integer
-            generator: {strategy: AUTO}
+            type: string
+            generator: {strategy: NONE}
 
     fields:
         description:

@@ -2,6 +2,7 @@
 
 namespace App\Domain;
 
+use App\Domain\Criteria\PendingTaskCriteria;
 use App\Domain\Criteria\TaskByIDCriteria;
 use App\Domain\Exception\NotFoundException;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -22,7 +23,10 @@ class TodoList
 
     public function addTask($description)
     {
-        $this->tasks->add(new Task($this, $description));
+        $task = new Task($this, $description);
+        $this->tasks->add($task);
+
+        return $task;
     }
 
     public function markTaskDone($id)
@@ -35,6 +39,16 @@ class TodoList
     {
         $task = $this->getTaskByID($id);
         $this->tasks->removeElement($task);
+    }
+
+    public function countTasks()
+    {
+        return $this->tasks->count();
+    }
+
+    public function countPendingTasks()
+    {
+        return $this->tasks->matching(new PendingTaskCriteria())->count();
     }
 
     public function toArrayWithTasks()
