@@ -2,11 +2,10 @@
 
 namespace App\Application;
 
-use App\Application\DTO\AddTaskRequest;
-use App\Application\DTO\CreateTodoListRequest;
-use App\Application\DTO\MarkTaskDoneRequest;
-use App\Application\DTO\RemoveTaskRequest;
-use App\Application\DTO\TodoListRequest;
+use App\Domain\Command\AddTaskCommand;
+use App\Domain\Command\CreateTodoListCommand;
+use App\Domain\Command\MarkTaskDoneCommand;
+use App\Domain\Command\RemoveTaskCommand;
 use App\Domain\TodoList;
 use App\Domain\TodoListRepository;
 
@@ -31,39 +30,40 @@ class TodoListManager
         }, $this->todoListRepository->getAllTodoLists());
     }
 
-    public function createTodoList(CreateTodoListRequest $request)
+    public function createTodoList(CreateTodoListCommand $command)
     {
-        $todoList = new TodoList($request->getName());
+        $todoList = new TodoList($command->name);
         $this->todoListRepository->add($todoList);
 
         return $todoList->toArrayWithTasks();
     }
 
-    public function addTask(AddTaskRequest $request)
+    public function addTask(AddTaskCommand $command)
     {
-        $todoList = $this->getTaskList($request);;
-        $todoList->addTask($request->getTaskDescription());
+        $todoList = $this->getTaskList($command->taskListID);
+        $todoList->addTask($command->description);
 
         return $todoList->toArrayWithTasks();
     }
 
-    public function removeTask(RemoveTaskRequest $request)
+    public function removeTask(RemoveTaskCommand $command)
     {
-        $todoList = $this->getTaskList($request);;
-        $todoList->removeTask($request->getTaskId());
+        $todoList = $this->getTaskList($command->taskListID);
+        $todoList->removeTask($command->taskId);
 
         return $todoList->toArrayWithTasks();
     }
 
-    public function markTaskAsDone(MarkTaskDoneRequest $request)
+    public function markTaskAsDone(MarkTaskDoneCommand $command)
     {
-        $todoList = $this->getTaskList($request);
+        $todoList = $this->getTaskList($command->taskListID);
+        $todoList->markTaskDone($command->taskId);
 
         return $todoList->toArrayWithTasks();
     }
 
-    private function getTaskList(TodoListRequest $request)
+    private function getTaskList(int $taskListID)
     {
-        return $this->todoListRepository->getTodoList($request->getTodoListId());
+        return $this->todoListRepository->getTodoList($taskListID);
     }
 }

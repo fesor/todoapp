@@ -2,10 +2,10 @@
 
 namespace App\Api\Controller;
 
-use App\Application\DTO\AddTaskRequest;
-use App\Application\DTO\CreateTodoListRequest;
-use App\Application\DTO\MarkTaskDoneRequest;
-use App\Application\DTO\RemoveTaskRequest;
+use App\Domain\Command\AddTaskCommand;
+use App\Domain\Command\CreateTodoListCommand;
+use App\Domain\Command\MarkTaskDoneCommand;
+use App\Domain\Command\RemoveTaskCommand;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,7 +34,7 @@ class TodosController extends Controller
     public function createTodoListAction(Request $request)
     {
         $response = $this->todoListManager()->createTodoList(
-            new CreateTodoListRequest(
+            new CreateTodoListCommand(
                 $request->get('name')
             )
         );
@@ -50,7 +50,8 @@ class TodosController extends Controller
      */
     public function addTaskAction(Request $request, $todoListID)
     {
-        $response = $this->todoListManager()->addTask(new AddTaskRequest(
+
+        $response = $this->todoListManager()->addTask(new AddTaskCommand(
             $todoListID,
             $request->get('description')
         ));
@@ -66,13 +67,13 @@ class TodosController extends Controller
      */
     public function removeTaskAction($todoListID, $taskID)
     {
-        $this->todoListManager()->markTaskDone(new RemoveTaskRequest(
+        $result = $this->todoListManager()->removeTask(new RemoveTaskCommand(
             $todoListID, $taskID
         ));
 
         $this->flush();
 
-        return $this->view(null, 204);
+        return $this->view($result, 200);
     }
 
     /**
@@ -81,9 +82,9 @@ class TodosController extends Controller
      * @Route("todos/{todoListID}/tasks/{taskID}/done")
      * @Method("POST")
      */
-    public function markTaskDoneAction($todoListID, $taskID)
+    public function markTaskDoneAction(int $todoListID, string $taskID)
     {
-        $response = $this->todoListManager()->markTaskDone(new MarkTaskDoneRequest(
+        $response = $this->todoListManager()->markTaskAsDone(new MarkTaskDoneCommand(
             $todoListID, $taskID
         ));
 
