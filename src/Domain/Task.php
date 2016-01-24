@@ -20,7 +20,7 @@ class Task
 
     private $status;
 
-    public function __construct(TodoList $todoList, $description)
+    public function __construct(TodoList $todoList, string $description)
     {
         $this->id = Cuid::slug();
         $this->todoList = $todoList;
@@ -29,17 +29,17 @@ class Task
         $this->status = self::STATUS_PENDING;
     }
 
-    public function getId()
+    public function getId() : string
     {
         return $this->id;
     }
 
-    public function isPending()
+    public function isPending() : bool
     {
         return $this->status === self::STATUS_PENDING;
     }
 
-    public function isDone()
+    public function isDone() : bool
     {
         return $this->status === self::STATUS_DONE;
     }
@@ -49,7 +49,7 @@ class Task
         $this->status = self::STATUS_DONE;
     }
 
-    public function toArray()
+    public function toArray() : array
     {
         return [
             'id' => $this->id,

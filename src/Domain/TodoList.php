@@ -15,13 +15,13 @@ class TodoList
 
     private $tasks;
 
-    public function __construct($name)
+    public function __construct(string $name)
     {
         $this->name = $name;
         $this->tasks = new ArrayCollection();
     }
 
-    public function addTask($description)
+    public function addTask(string $description) : Task
     {
         $task = new Task($this, $description);
         $this->tasks->add($task);
@@ -29,29 +29,29 @@ class TodoList
         return $task;
     }
 
-    public function markTaskDone($id)
+    public function markTaskDone(string $id)
     {
         $task = $this->getTaskByID($id);
         $task->done();
     }
 
-    public function removeTask($id)
+    public function removeTask(string $id)
     {
         $task = $this->getTaskByID($id);
         $this->tasks->removeElement($task);
     }
 
-    public function countTasks()
+    public function countTasks() : int
     {
         return $this->tasks->count();
     }
 
-    public function countPendingTasks()
+    public function countPendingTasks() : int
     {
         return $this->tasks->matching(new PendingTaskCriteria())->count();
     }
 
-    public function toArrayWithTasks()
+    public function toArrayWithTasks() : array
     {
         return [
             'id' => $this->id,
@@ -63,7 +63,7 @@ class TodoList
         ];
     }
 
-    private function getTaskByID($id)
+    private function getTaskByID($id) : Task
     {
         $task = $this->tasks->matching(new TaskByIDCriteria($id))->first();
         if (false === $task) {

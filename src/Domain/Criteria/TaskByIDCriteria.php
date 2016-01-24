@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\Expr\Expression;
 
 class TaskByIDCriteria extends Criteria
 {
-    public function __construct($id)
+    public function __construct(string $id)
     {
         parent::__construct();
 
