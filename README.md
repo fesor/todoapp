@@ -13,3 +13,13 @@ First of all we need to install dependencies:
  - Composer dependencies via `make install`
 
 When you are done, start containers by running `docker-compose up -d` and we are ready to go.
+
+## Running tests
+
+Test are written using [phpspec](http://phpspec.readthedocs.org/en/latest/) and can be found in `spec` directory.
+
+To run test just make sure that you installed dependencies and then run:
+
+```bash
+docker-compose run --no-deps php bin/phpspec run
+```
