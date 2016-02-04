@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Api\Controller;
+namespace App\Http\Controller;
 
 use App\Domain\Command\AddTaskCommand;
 use App\Domain\Command\CreateTodoListCommand;
