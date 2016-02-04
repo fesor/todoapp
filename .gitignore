@@ -1,9 +1,5 @@
-# IDE and dev tools specific files
-.idea
-*.iml
-.vagrant
-node_modules
-devops/roles/galaxy/*
+# Build artifacts
+/reports
 
 # Symfony specific
 /app/bootstrap.php.cache
