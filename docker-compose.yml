@@ -1,26 +1,27 @@
-php:
-    build: '.'
-    links:
-        - database
-    env_file: .env
-    volumes:
-        - '.:/srv'
+version: "2"
 
-front:
-    build: 'devops/dockerfiles/nginx'
-    ports:
-        - 0.0.0.0:8080:80
-    links:
-        - php
+services:
+    php:
+        build: '.'
+        depends_on:
+            - database
+        env_file: support/env/dev.env
+        volumes:
+            - '.:/srv'
 
-database:
-    image: postgres:9.4
-    env_file: .env
-    volumes_from:
-        - dbdata
+    front:
+        build: 'front'
+        depends_on:
+            - php
+        ports:
+            - 0.0.0.0:8080:80
 
-dbdata:
-    image: postgres:9.4
-    volumes:
-        - /var/lib/postgresql
-    command: "true"
+    database:
+        build: 'support/database'
+        env_file: support/env/dev.env
+        volumes:
+            - dbdata:/var/lib/postgresql
+
+volumes:
+    dbdata:
+        driver: local

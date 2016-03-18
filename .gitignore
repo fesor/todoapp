@@ -1,16 +1,10 @@
-# Build artifacts
-/reports
-
 # Symfony specific
-/app/bootstrap.php.cache
-/app/cache/*
-/app/logs/*
-!app/cache/.gitkeep
-!app/logs/.gitkeep
 /build/
 /vendor/
-/bin/
+/bin/*
+!/bin/healthcheck
+!/bin/console
+/var/*
 /composer.phar
-/web/bundles/
-
+/front/web/bundles
 !.gitkeep

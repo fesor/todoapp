@@ -1,0 +1,42 @@
+#!/usr/bin/env php
+<?php
+
+doHealthCheck(
+    2 === $argc ?
+        ((int) $argv[1]) : 0
+);
+
+function checkHealth() {
+
+    try {
+        $connection = new PDO(
+            sprintf(
+                'pgsql:host=%s;dbname=%s',
+                'database',
+                getenv('SYMFONY__DATABASE__NAME')
+            ),
+            getenv('SYMFONY__DATABASE__USER'),
+            getenv('SYMFONY__DATABASE__PASS')
+        );
+    } catch (PDOException $e) {
+        return false;
+    }
+
+    return true;
+}
+
+function doHealthCheck($timeout) {
+    $timeout = time() + $timeout;
+    echo 'Checking...';
+    do {
+        if (!($healthy = checkHealth())) {
+            sleep(1);
+            echo '.';
+        }
+    } while(!$healthy && time() < $timeout);
+
+    printf("\nHealth check: %s\n", $healthy ? 'OK' : 'Failed');
+    if (!$healthy) {
+        exit(1);
+    }
+}
