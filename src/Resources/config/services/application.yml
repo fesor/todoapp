@@ -1,4 +1,4 @@
 services:
     todo_list_manager:
         class: App\Application\TodoListManager
-        arguments: [@app.doctrine.todo_list_repository]
+        autowire: true

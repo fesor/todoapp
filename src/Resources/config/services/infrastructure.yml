@@ -1,4 +1,4 @@
 services:
     app.doctrine.todo_list_repository:
         class: App\Infrastructure\Doctrine\Repository\TodoListRepository
-        arguments: [@doctrine.orm.entity_manager]
+        autowire: true

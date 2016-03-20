@@ -8,5 +8,4 @@ docker run --rm -it \
      -v ~/.composer:/composer \
      -e COMPOSER_HOME="/composer" \
      --env-file ./support/env/dev.env \
-     --entrypoint $entrypoint
      composer/composer:php7 $@
