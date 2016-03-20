@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+aglio=$(dirname "$0")/aglio
+$aglio \
+    -i /docs/app/Resources/docs/api_documentation.md \
+    --theme-template triple \
+    -o /docs/front/web/api_documentation.html
