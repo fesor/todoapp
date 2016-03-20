@@ -1,4 +1,0 @@
-services:
-    app.doctrine.todo_list_repository:
-        class: App\Infrastructure\Doctrine\Repository\TodoListRepository
-        autowire: true

@@ -1,4 +1,0 @@
-services:
-    todo_list_manager:
-        class: App\Application\TodoListManager
-        autowire: true

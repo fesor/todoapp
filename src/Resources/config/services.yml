@@ -1,4 +1,0 @@
-imports:
-    - { resource: services/application.yml }
-    - { resource: services/http.yml }
-    - { resource: services/infrastructure.yml }
