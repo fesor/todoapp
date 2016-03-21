@@ -77,7 +77,7 @@ Create user session or basicly login into the system
                 + path: `/secret` (string, required)
                 + message: Secret is required (string, required)
 
-## User profile [/users/{user_id}]
+## User profile [/api/v1/users/{user_id}]
 
 + Parameters
     + user_id: ch72gsb320000udocl363eofy (string, required)
