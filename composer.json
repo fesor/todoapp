@@ -5,6 +5,7 @@
     "description": "Backend template project",
     "autoload": {
         "psr-4": { "Todoapp\\": "src/" },
+        "files": ["src/functions.php"],
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "autoload-dev": {
