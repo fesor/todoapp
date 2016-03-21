@@ -4,11 +4,11 @@
     "type": "project",
     "description": "Backend template project",
     "autoload": {
-        "psr-4": { "App\\": "src/" },
+        "psr-4": { "Todoapp\\": "src/" },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "autoload-dev": {
-        "psr-4": {"features\\App\\": "features/bootstrap"}
+        "psr-4": {"features\\Todoapp\\": "features/bootstrap"}
     },
     "require": {
         "php": ">=7.0.1",

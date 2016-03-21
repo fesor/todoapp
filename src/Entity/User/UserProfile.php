@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\User;
+namespace Todoapp\Entity\User;
 
 class UserProfile
 {

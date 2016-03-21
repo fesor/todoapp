@@ -17,7 +17,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new \Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new \FOS\RestBundle\FOSRestBundle(),
-            new App\AppBundle(),
+            new Todoapp\AppBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

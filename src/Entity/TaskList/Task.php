@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\TaskList;
+namespace Todoapp\Entity\TaskList;
 
 class Task
 {
