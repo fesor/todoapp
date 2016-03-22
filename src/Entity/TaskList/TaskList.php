@@ -1,16 +1,19 @@
 <?php
 
-
 namespace Todoapp\Entity\TaskList;
+
+use EndyJasmi\Cuid;
 
 class TaskList
 {
 
+    private $id;
     private $name;
     private $tasks;
 
     public function __construct($name)
     {
+        $this->id = Cuid::cuid();
         $this->name = $name;
         $this->tasks = [];
     }
@@ -34,6 +37,4 @@ class TaskList
 
         return $tasks;
     }
-
-
 }
