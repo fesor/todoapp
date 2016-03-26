@@ -43,8 +43,8 @@ class TaskPriority
         return $this->priority;
     }
 
-    public function compare(TaskPriority $priority)
+    public static function compare(TaskPriority $a, TaskPriority $b)
     {
-        return  $priority->priorityNormalized <=> $this->priorityNormalized;
+        return  $a->priorityNormalized <=> $b->priorityNormalized;
     }
 }

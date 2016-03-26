@@ -31,9 +31,7 @@ class TaskList
     public function getTasks()
     {
         $tasks = $this->tasks;
-        usort($tasks, function (Task $a, Task $b) {
-            return $a->comparePriority($b);
-        });
+        usort($tasks, [Task::class, 'comparePriority']);
 
         return $tasks;
     }

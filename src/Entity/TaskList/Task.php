@@ -31,8 +31,8 @@ class Task
         return $this->name;
     }
 
-    public function comparePriority(Task $task)
+    public static function comparePriority(Task $a, Task $b)
     {
-        return $this->priority->compare($task->priority);
+        return TaskPriority::compare($b->priority, $a->priority);
     }
 }
