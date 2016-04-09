@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
 
-docker-compose -p todoapp $@
+dotenv () {
+  set -a
+  [ -f .env ] && . .env
+  set +a
+}
+
+dotenv && docker-compose $@

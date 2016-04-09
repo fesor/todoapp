@@ -39,7 +39,7 @@ User registration with just email/password
 
 ## Login [POST /api/v1/sessions]
 
-Create user session or basicly login into the system
+Create user session or basically login into the system.
 
 + Request (application/json)
     Successful login

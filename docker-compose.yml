@@ -5,23 +5,11 @@ services:
         build: '.'
         depends_on:
             - database
-        env_file: support/env/dev.env
-        volumes:
-            - '.:/srv'
 
     front:
         build: 'front'
         depends_on:
             - php
-        ports:
-            - 0.0.0.0:8080:80
 
     database:
         build: 'support/database'
-        env_file: support/env/dev.env
-        volumes:
-            - dbdata:/var/lib/postgresql
-
-volumes:
-    dbdata:
-        driver: local

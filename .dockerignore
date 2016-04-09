@@ -1,4 +1,7 @@
-devops
-app/cache
-app/logs
+support/*
+!support/php
+var/*
+!var/.gitkeep
+front
 .env
+.git

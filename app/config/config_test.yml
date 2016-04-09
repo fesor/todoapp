@@ -8,11 +8,6 @@ framework:
     profiler:
         collect: false
 
-doctrine:
-    dbal:
-        driver:   pdo_pgsql
-        dbname:   "%database_name%_test"
-
 web_profiler:
     toolbar: false
     intercept_redirects: false

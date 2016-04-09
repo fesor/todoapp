@@ -22,6 +22,11 @@ class User
         $this->profile = $profile;
     }
 
+    public static function register(string $email, string $password, UserProfile $profile)
+    {
+        return new static($email, $password, $profile);
+    }
+
     public function getUsername()
     {
         return $this->email;
@@ -30,6 +35,11 @@ class User
     public function updateProfile(UserProfile $profile)
     {
         $this->profile = $profile;
+    }
+
+    public function connect()
+    {
+
     }
 
 }

@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 
-entrypoint=""
-
 docker run --rm -it \
      --user $(id -u) \
      -v $(pwd):/app \
      -v ~/.composer:/composer \
      -e COMPOSER_HOME="/composer" \
      --env-file ./support/env/dev.env \
-     composer/composer:php7 $@
+     --entrypoint '/app/support/scripts/composer-entrypoint' \
+     fesor/composer $@

@@ -1,0 +1,20 @@
+version: "2"
+
+services:
+    php:
+        env_file: support/env/dev.env
+        volumes:
+            - '.:/srv'
+
+    front:
+        ports:
+            - 0.0.0.0:8080:80
+
+    database:
+        env_file: support/env/dev.env
+        volumes:
+            - dbdata:/var/lib/postgresql
+
+volumes:
+    dbdata:
+        driver: local

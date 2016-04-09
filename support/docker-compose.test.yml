@@ -3,10 +3,9 @@ version: "2"
 services:
     php:
         tty: true
-        read_only: true
+        env_file: support/env/dev.env
         environment:
             SYMFONY_ENV: test
 
     database:
-        image: postgres:9.4
-        volumes: []
+        env_file: support/env/dev.env
