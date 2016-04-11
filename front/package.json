@@ -1,0 +1,67 @@
+{
+  "name": "todoapp-ui",
+  "version": "0.1.0",
+  "description": "UI for simple TodoApp",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-easyfb": "^1.4.2",
+    "angular-ui-bootstrap": "^1.3.1",
+    "angular-ui-router": "^0.2.15",
+    "bootstrap": "^3.3.6",
+    "lodash": "^3.8.0",
+    "normalize.css": "^3.0.3"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.0",
+    "babel-core": "^5.4.2",
+    "babel-loader": "^5.0.0",
+    "browser-sync": "^2.11.1",
+    "chai": "^3.4.0",
+    "connect-history-api-fallback": "^1.1.0",
+    "css-loader": "^0.19.0",
+    "file-loader": "^0.8.5",
+    "fs-walk": "0.0.1",
+    "gulp": "^3.9.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-template": "^3.0.0",
+    "gulp-util": "^3.0.7",
+    "html-webpack-plugin": "^1.7.0",
+    "karma": "^0.13.9",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-mocha": "^0.2.0",
+    "karma-mocha-reporter": "^1.0.2",
+    "karma-sourcemap-loader": "^0.3.4",
+    "karma-webpack": "^1.5.1",
+    "less": "^2.6.1",
+    "less-loader": "^2.2.3",
+    "mocha": "^2.3.0",
+    "ng-annotate-loader": "0.0.10",
+    "node-libs-browser": "^0.5.0",
+    "raw-loader": "^0.5.1",
+    "run-sequence": "^1.1.0",
+    "style-loader": "^0.12.2",
+    "supports-color": "^3.1.2",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.9.5",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.6.0",
+    "yargs": "^3.9.0"
+  },
+  "scripts": {
+    "test": "karma start"
+  },
+  "keywords": [
+    "angular",
+    "webpack",
+    "es6",
+    "todo"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fesor/todoapp.git"
+  },
+  "author": "Fesor",
+  "license": "MIT"
+}
