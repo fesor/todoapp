@@ -1,7 +1,0 @@
-support/*
-!support/php
-var/*
-!var/.gitkeep
-front
-.env
-.git
