@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-adduser -u $(id -u)
-composer $@

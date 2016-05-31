@@ -1,8 +1,0 @@
-fos_rest:
-    body_listener:
-        array_normalizer: fos_rest.normalizer.camel_keys
-
-    exception:
-        codes:
-            'Symfony\Component\Routing\Exception\ResourceNotFoundException': 404
-            'Doctrine\ORM\OptimisticLockException': HTTP_CONFLICT

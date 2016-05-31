@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-compose=$(dirname "$0")/compose
-compose run --rm --user $(id -u) --no-deps php bin/console $@

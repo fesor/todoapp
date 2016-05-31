@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-docker run --rm -ti -v $(pwd):/docs humangeo/aglio $@
