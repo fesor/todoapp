@@ -4,8 +4,9 @@ namespace App\Domain\User;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\Uuid;
+use Symfony\Component\Security\Core\User\UserInterface;
 
-class User
+class User implements UserInterface
 {
     private $id;
 
@@ -60,5 +61,29 @@ class User
     public function connectAccount(string $provider, string $userId)
     {
         $this->connectedAccounts->add(new SocialAccount($provider, $userId));
+    }
+
+    public function getRoles()
+    {
+        return 'ROLE_USER';
+    }
+
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    public function getSalt()
+    {
+        return null;
+    }
+
+    public function getUsername()
+    {
+        return $this->id;
+    }
+
+    public function eraseCredentials()
+    {
     }
 }
