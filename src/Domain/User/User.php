@@ -3,6 +3,7 @@
 namespace App\Domain\User;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Ramsey\Uuid\Uuid;
 
 class User
 {
@@ -18,6 +19,7 @@ class User
 
     private function __construct()
     {
+        $this->id = Uuid::uuid4();
         $this->connectedAccounts = new ArrayCollection();
     }
 
