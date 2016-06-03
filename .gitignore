@@ -1,4 +1,3 @@
-node_modules
 # Symfony specific
 /build/
 /vendor/
@@ -8,5 +7,4 @@ node_modules
 /var/*
 /composer.phar
 /front/web/bundles
-/front/web/api_documentation.html
 !.gitkeep
