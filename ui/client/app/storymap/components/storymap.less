@@ -1,0 +1,31 @@
+todo-storymap {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  overflow: scroll;
+  height: 100%;
+}
+
+.cards-container {
+  border-top: solid 1px #ccc;
+  display: flex;
+  flex-direction: row;
+
+  &-col {
+    flex-direction: column;
+  }
+}
+
+todo-card-collection {
+  display: flex;
+  flex-direction: column;
+  todo-storymap > & {
+    border-right: solid 1px #ccc;
+  }
+}
+
+.parent-card {
+
+}
+
+

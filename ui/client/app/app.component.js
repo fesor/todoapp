@@ -2,9 +2,8 @@ import './app.less';
 
 let appComponent = {
   template: `
-    <div class="app">
-      <div ui-view></div>
-    </div>
+    <div class="header">Header</div>
+    <ui-view></ui-view>
   `,
   restrict: 'E'
 };

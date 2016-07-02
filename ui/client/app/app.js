@@ -1,20 +1,21 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import Common from './common/common';
-import Components from './components/components';
+import storyMap from './storymap/storymap';
 import AppComponent from './app.component';
 import 'normalize.css';
 
-angular.module('app', [
+angular.module('todoapp.ui', [
     uiRouter,
     Common,
-    Components
+    storyMap
   ])
-  .config(($locationProvider) => {
+  .config(($locationProvider, $logProvider) => {
     "ngInject";
     // @see: https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions
     // #how-to-configure-your-server-to-work-with-html5mode
     $locationProvider.html5Mode(true).hashPrefix('!');
+    $logProvider.debugEnabled(true);
   })
 
   .component('app', AppComponent);
